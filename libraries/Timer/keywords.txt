@@ -1,0 +1,5 @@
+Timer   KEYWORD2
+init    KEYWORD2
+Trg     KEYWORD2
+Rst     KEYWORD2
+Out     KEYWORD2

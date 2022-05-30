@@ -1,4 +1,4 @@
-//Arduino Uno board 
+//Arduino Uno board
 /*
 pin config
 number0
@@ -26,30 +26,55 @@ Analog Multi1
 Analog Multi2
 */
 
-//#include <Timer.h>
+#include "Timer.h"
 #define dw digitalWrite
-#define digitOn false
-short decDigitPin[10]=;
-short dpPin=;
-short anodePin[4];
-short pb1=;
-short pb2=;
-short outPin= ;
+const bool digitOn = false;
+short decDigitPin[10] =;
+short dpPin =;
+short anodePin[4] =;
+short pb1 =;
+short pb2 =;
+short outPin = ;
 
-#define refreshTime 1
+#define refreshTime 10
 #define gapTime 1
+Timer refeshTimer;
 
-void diaplay(int AB,int CD){
+int digits[4];
+bool busy = false;
+int c = 0;
+void diaplay(int AB, int CD) {
 	//input domain: AB,CD:[ 0,99]
-	int A= AB /10;
-	int B= AB %10;
-	int C= CD /10;
-    int D= CD %10;
-    for(int i=0; i<4; i++){
-    	dw(anodePin[(i+3)%4], aOff);
-    	delay(gapTime);
-    	dw(anodePin[i], aOn);
-    	delay(refreshTime);
+	digits[0] = AB / 10;
+	digits[1] = AB % 10;
+	digits[2] = CD / 10;
+	digits[3] = CD % 10;
+
+	if (refeshTimer.getClock() && !busy) {
+		
+		digitalWrite(digits[c],digitOn);
+		digitalWrite(anodePin[c],digitOn);
+		c = (c++)%4;
+		busy = true;
+	}
+
+	if(!refeshTimer.getClock() && busy){
+    	
+	    for(int i=0; i<10; i++){			//reset all the kathode ports
+    		digitalWrite(decDigitPin[i],0);
+	    }
+        busy = false;
     }
-   
- }
+    
+
+    
+
+}
+
+void setup() {
+	refeshTimer.setClock(10,80);
+}
+
+void loop() {
+
+}

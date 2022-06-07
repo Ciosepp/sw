@@ -27,17 +27,10 @@ Analog Multi2
 */
 
 #include "Timer.h"
-#define dw digitalWrite
-const bool digitOn = false;
-short decDigitPin[10] =;
-short dpPin =;
-short anodePin[4] =;
-short pb1 =;
-short pb2 =;
-short outPin = ;
+#include "pinConfig.h"
+#include "dataConfig.h"
 
-#define refreshTime 10
-#define gapTime 1
+
 Timer refeshTimer;
 
 int digits[4];

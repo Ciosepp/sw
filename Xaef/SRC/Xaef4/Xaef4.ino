@@ -58,11 +58,10 @@ void loop(){
 		isBusy = true;
 	}
 
-	if((READ=='1'|| millis()>=delayTime)&&isBusy){
+	if(READ=='1' &&isBusy){
 
 		poke();
 		digitalWrite(led,0);
-		delayTime = (random(minTime,maxTime)*60000) + millis();
 		READ ='0';
 	}  
 }

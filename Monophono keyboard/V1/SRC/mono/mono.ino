@@ -1,3 +1,8 @@
+/*
+ Questo firmware è il primo mai scritto per Monophono ed in teoria funziona.
+ E' scritto per una millefori avente solo l'Arduino Pro Micro, il DAC MCP4725
+ ed il connettore 8x2-2.54
+*/
 //gestore polifonia /monofonia
 const int N =49; //n. tasti
 //int n= 2; //ordine di polifonia

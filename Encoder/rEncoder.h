@@ -9,6 +9,7 @@ class rEncoder
 		rEncoder(uint8_t pinA, uint8_t pinB, uint8_t pinPB, bool EN_STATE);
 
 		int updateEncoder(int oldVal);
+		int updateEncoderMult(int n,int k)
 
 		bool getPBState();
 

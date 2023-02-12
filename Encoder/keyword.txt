@@ -1,0 +1,7 @@
+rEncoder 	KEYWORD1
+
+
+updateEncoder		KEYWORD2
+updateEncoderMult   KEYWORD2
+getPBState			KEYWORD2
+getLongPress		KEYWORD2
